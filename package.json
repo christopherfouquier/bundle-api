@@ -12,6 +12,7 @@
     "debug": "~2.1.1",
     "express": "~4.12.2",
     "mongoose": "^4.0.1",
+    "mongoose-fixture": "^0.4.1",
     "morgan": "~1.5.1",
     "rand-token": "^0.2.1",
     "sha1": "^1.1.0"

@@ -1,8 +1,8 @@
 TODO LIST
 =========
 
-* Feature : Create user admin by default
-* Feature : Forgot password
+* Feat : Forgot password
+* Fix : Create user admin by default
 * Fix : Update password sha1
 
 INSTALL
@@ -14,6 +14,8 @@ INSTALL
 
 DOCS
 ====
+
+Param GET => token for all route.
 
 Get all users `GET` <kbd>/users</kbd>
 
