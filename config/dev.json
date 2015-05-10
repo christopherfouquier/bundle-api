@@ -1,0 +1,6 @@
+{
+	"env": "dev",
+	"host": "localhost",
+	"port": 27017,
+	"dbname": "api"
+}
