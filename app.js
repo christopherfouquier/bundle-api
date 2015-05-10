@@ -4,8 +4,11 @@ var logger        = require('morgan');
 var cookieParser  = require('cookie-parser');
 var bodyParser    = require('body-parser');
 var mongoose      = require('mongoose');
+var config	  = require('config');
 
-mongoose.connect('mongodb://localhost/api', function(err) {
+console.log(config);
+
+mongoose.connect('mongodb://'+ config.host +':'+ config.port +'/'+ config.dbname, function(err) {
     if(err) {
         console.log('connection error', err);
     } else {
