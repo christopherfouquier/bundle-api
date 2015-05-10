@@ -2,10 +2,15 @@ TODO LIST
 =========
 
 * Feature : Create user admin by default
-* Feature : Control access token
 * Feature : Forgot password
-* Feature : Config file json
 * Fix : Update password sha1
+
+INSTALL
+=======
+
+* npm install
+* export NODE_ENV=dev
+* node bin/www
 
 DOCS
 ====
