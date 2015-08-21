@@ -1,0 +1,17 @@
+{
+    "name"        : "NAME-API-dev",
+    "script"      : "server.js",
+    "watch"       : false,
+    "ignore_watch" : ["public/css"],
+    "env": "dev",
+    "front": {
+        "host": "http://google.fr/"
+    },
+    "api": {
+        "host": "http://back.dev",
+        "port": "3000"
+    },
+    "db": {
+        "dbname": "NAME_dev"
+    }
+}
