@@ -13,5 +13,8 @@
     },
     "db": {
         "dbname": "NAME_dev"
+    },
+    "mailer": {
+        "from": "no-reply@clintagency.com"
     }
 }

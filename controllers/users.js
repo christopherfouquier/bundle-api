@@ -69,18 +69,8 @@ exports.create = function(req, res, next) {
                     return next(err);
                 }
                 else {
-                    var transporter = nodemailer.createTransport({
-                        // service: 'Gmail',
-                        // auth: {
-                        //  user: 'christopher@clintagency.com',
-                        //  pass: '*******'
-                        // },
-                        host: 'localhost',
-                        port: 25
-                    });
-                    transporter.sendMail({
-                        from: 'no-reply@clintagency.com',
-                        to: user.email,
+                    tools.mailer({
+                        email: user.email,
                         subject: 'Confirmation d\'inscription',
                         html: ''
                     }, function(err,info) {
@@ -201,25 +191,14 @@ exports.forgot = function(req, res, next) {
                 user.password = clearNewpassword;
                 user.save(function(err) {
                     if (err) return next(err);
-                    // @TODO change config
-                    var transporter = nodemailer.createTransport({
-                        // service: 'Gmail',
-                        // auth: {
-                        //  user: 'christopher@clintagency.com',
-                        //  pass: '*******'
-                        // },
-                        host: 'localhost',
-                        port: 25
-                    });
-                    transporter.sendMail({
-                        from: 'no-reply@clintagency.com',
-                        to: email,
+
+                    tools.mailer({
+                        email: email,
                         subject: 'Votre nouveau mot de passe',
                         html: ''
                     }, function(err,info) {
                         if (err) return next(err);
                         res.status(200).json('Password has been reset.');
-
                     });
                 });
             }

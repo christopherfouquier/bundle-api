@@ -3,8 +3,9 @@
 /**
  * Module dependencies.
  */
-var config = require('config'),
-    _      = require('lodash');
+var config      = require('config'),
+    _           = require('lodash'),
+    nodemailer  = require('nodemailer');
 
 /**
  * console.log activate in env dev
@@ -75,4 +76,27 @@ exports.getAll = function(model, req, res, next) {
             res.status(200).json(sites);
         });
     }
+};
+
+/**
+ * Service mailer
+ * @param (object) data
+ * @param (function) cb
+ */
+exports.mailer = function(data, cb) {
+    var transporter = nodemailer.createTransport({
+        // service: 'Gmail',
+        // auth: {
+        //     user: 'christopher@clintagency.com',
+        //     pass: '******'
+        // },
+        host: config.mailer.host,
+        port: config.mailer.port
+    });
+    transporter.sendMail({
+        from: config.mailer.from,
+        to: data.email,
+        subject: data.subject,
+        html: data.html
+    }, cb);
 };

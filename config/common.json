@@ -6,5 +6,9 @@
     "db": {
         "host": "localhost",
         "port": 27017
+    },
+    "mailer": {
+        "host": "localhost",
+        "port": 25
     }
 }
