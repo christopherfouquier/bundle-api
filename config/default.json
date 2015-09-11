@@ -15,6 +15,14 @@
         "dbname": "NAME_dev"
     },
     "mailer": {
-        "from": "no-reply@clintagency.com"
+        "from": "no-reply@clintagency.com",
+        "forgot": {
+            "subject": "Votre nouveau mot de passe",
+            "body": ""
+        },
+        "create": {
+            "subject": "Confirmation d'inscription",
+            "body": ""
+        }
     }
 }

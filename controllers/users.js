@@ -70,10 +70,10 @@ exports.create = function(req, res, next) {
                 }
                 else {
                     tools.mailer({
-                        email: user.email,
-                        subject: 'Confirmation d\'inscription',
-                        html: ''
-                    }, function(err,info) {
+                        email: user.email
+                        subject: config.mailer.create.subject,
+                        html: config.mailer.create.body
+                    }, function(err, info) {
                         if (err) return next(err);
                         res.status(200).json(user);
                     });
@@ -194,9 +194,9 @@ exports.forgot = function(req, res, next) {
 
                     tools.mailer({
                         email: email,
-                        subject: 'Votre nouveau mot de passe',
-                        html: ''
-                    }, function(err,info) {
+                        subject: config.mailer.forgot.subject,
+                        html: config.mailer.forgot.body
+                    }, function(err, info) {
                         if (err) return next(err);
                         res.status(200).json('Password has been reset.');
                     });
