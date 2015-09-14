@@ -70,7 +70,7 @@ exports.create = function(req, res, next) {
                 }
                 else {
                     tools.mailer({
-                        email: user.email
+                        email: user.email,
                         subject: config.mailer.create.subject,
                         html: config.mailer.create.body
                     }, function(err, info) {

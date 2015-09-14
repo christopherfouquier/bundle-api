@@ -88,7 +88,7 @@ exports.mailer = function(data, cb) {
         // service: 'Gmail',
         // auth: {
         //     user: 'christopher@clintagency.com',
-        //     pass: '******'
+        //     pass: '*******'
         // },
         host: config.mailer.host,
         port: config.mailer.port
