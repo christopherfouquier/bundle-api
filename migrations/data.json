@@ -1,0 +1,17 @@
+{
+    "users": [
+        {
+            "firstname": "Christopher",
+            "lastname": "Fouquier",
+            "email": "chirstopher@clintagency.com",
+            "password": "root",
+            "role": "admin"
+        },
+        {
+            "firstname": "Jean",
+            "lastname": "Roger",
+            "email": "jean@clintagency.com",
+            "password": "root"
+        }
+    ]
+}
