@@ -6,7 +6,7 @@ var fs       = require('fs'),
     User     = mongoose.model('User');
 
 // Check variable env NODE_ENV
-if (!process.env.NODE_ENV)
+if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = "dev";
 }
 
