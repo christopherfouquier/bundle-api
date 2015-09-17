@@ -99,33 +99,13 @@ exports.read = function(req, res) {
 exports.update = function(req, res, next) {
     var user = req.user;
 
-    // Find tag
-    if (req.body.club) {
-        Tag.findOne({slug: req.body.club}, function(err, tag) {
-            if (err) return next(err);
-            callback(tag._id);
-        });
-    }
-    else {
-        callback(null);
-    }
+    user = _.extend(user, req.body);
+    user.set("updated_at", Date.now());
 
-    function callback(tag) {
-        user = _.extend(user, req.body);
-        user.club = tag;
-
-        user.save(function(err) {
-            if (err) return next(err);
-            user.populate('club', function(err, newUser) {
-                if (err) {
-                    return next(err);
-                }
-                else {
-                    res.status(200).json(newUser);
-                }
-            });
-        });
-    }
+    user.save(function(err) {
+        if (err) return next(err);
+        res.status(200).json(newUser);
+    });
 };
 
 /**
