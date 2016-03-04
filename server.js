@@ -9,10 +9,20 @@ var app     = require('./app'),
     config  = require('./controllers/tools.js').config();
 
 /**
+ * PMX 
+ */
+if (process.env.NODE_ENV == "production") {
+    var pmx = require('pmx').init({
+      network : true,
+      ports   : true
+    });
+}
+
+/**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || config.api.port);
+var port = normalizePort(process.env.port || 3000);
 app.set('port', port);
 
 /**

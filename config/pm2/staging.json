@@ -1,0 +1,32 @@
+{
+    "name"        : "PROJET",
+    "script"      : "server.js",
+    "watch"       : true,
+    "ignore_watch" : [],
+    "env": {
+        "port": 3000,
+        "NODE_ENV": "staging",
+        "config": {
+            "front": {
+                "host": "http://google.fr/"
+            },
+            "api": {
+                "host": "http://127.0.0.1"
+            },
+            "db": {
+                "dbname": "db_name"
+            },
+            "mailer": {
+                "from": "no-reply@clintagency.com",
+                "forgot": {
+                    "subject": "Votre nouveau mot de passe",
+                    "body": ""
+                },
+                "create": {
+                    "subject": "Confirmation d'inscription",
+                    "body": ""
+                }
+            }
+        }
+    }
+}

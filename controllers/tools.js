@@ -3,15 +3,14 @@
 /**
  * Module dependencies.
  */
-var config      = require('config'),
-    _           = require('lodash'),
+var _           = require('lodash'),
     nodemailer  = require('nodemailer');
 
 /**
  * console.log activate in env dev
  */
 exports.debug = function(param) {
-    if (config.env == 'dev') {
+    if (process.env.NODE_ENV == 'dev') {
         console.log(param);
     }
 };
@@ -20,19 +19,7 @@ exports.debug = function(param) {
  * Get configuration
  */
 exports.config = function() {
-    // Check file of config
-    try {
-        var config_env = require('../config/pm2_' + process.env.NODE_ENV + '.json\n');
-    }
-    catch(e) {
-        var config_env = require('../config/default.json');
-    }
-
-    // Merge file config env with config common
-    var common = require('../config/common.json'),
-        config = _.merge(config_env, common);
-
-    return config;
+    return JSON.parse(process.env.config);
 };
 
 /**
