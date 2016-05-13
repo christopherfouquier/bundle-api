@@ -15,19 +15,26 @@ var express         = require('express'),
 
 // Check variable env NODE_ENV
 if (config.env) {
-    log.write('NODE_ENV = ' + config.env + '\n');
+    log.write('NODE_ENV = ' + config.env);
 }
 else {
     log.write('NODE_ENV not found');
     config.env = "dev";
-    log.write('NODE_ENV = ' + config.env + '\n');
+    log.write('NODE_ENV = ' + config.env);
 }
 
 // Require connection db
 var db  = require('./db.js'),
     app = express();
 
-app.use(logger('dev'));
+// Log access api
+if (config.env === 'dev' || config.env === 'test') {
+    app.use(logger('dev'));
+}
+else {
+    app.use(logger('combined', { stream: fs.createWriteStream(__dirname + '/../logs/access.log', {flags: 'a'}) }));
+}
+
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser.json({limit: '5mb'}));
 app.use(bodyParser.urlencoded({limit: '5mb', extended: false}));

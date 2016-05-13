@@ -17,7 +17,7 @@ mongoose.connection.on('connected', function () {
         });
     }
 
-    log.write('Mongoose default connection open to ' + dbURI + '\n');
+    log.write('Mongoose default connection open to ' + dbURI);
 });
 
 // If the connection throws an error

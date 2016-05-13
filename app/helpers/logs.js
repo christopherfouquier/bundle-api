@@ -9,7 +9,7 @@ var logs = {
         var d = date.format(new Date()),
             dateFormat = d.day + '/' + d.month + '/' + d.year + ' ' + d.hours + ':' + d.minutes + ':' + d.seconds;
 
-        msg = '[' + dateFormat + '] - > ' + msg;
+        msg = '[' + dateFormat + '] - > ' + msg + '\n';
 
         if (config.env == 'dev' || config.env == 'test') {
             console.log(msg);
