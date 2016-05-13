@@ -4,15 +4,16 @@
  * Module dependencies.
  */
 
-var app     = require('./app'),
+var app     = require('./app/app'),
     http    = require('http'),
-    config  = require('./controllers/tools.js').config();
+    config  = require('./app/helpers/config'),
+    log     = require('./app/helpers/logs');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || config.api.port);
+var port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);
 
 /**
@@ -65,11 +66,11 @@ function onError(error) {
     // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
-        console.error(bind + ' requires elevated privileges');
+        log.write(bind + ' requires elevated privileges');
         process.exit(1);
         break;
         case 'EADDRINUSE':
-        console.error(bind + ' is already in use');
+        log.write(bind + ' is already in use');
         process.exit(1);
         break;
         default:
@@ -86,5 +87,5 @@ function onListening() {
     var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-    console.log('> Listening on ' + bind + '\n');
+    log.write('Listening on ' + bind + '\n');
 }

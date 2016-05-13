@@ -1,0 +1,36 @@
+{
+    "name": "[Production] Project",
+    "script": "server.js",
+    "watch": false,
+    "ignore_watch": ["public/uploads", "logs"],
+    "env": {
+        "NODE_ENV": "production",
+        "config": {
+            "port": 3000,
+            "front": {
+                "host": ""
+            },
+            "api": {
+                "host": "http://127.0.0.1"
+            },
+            "db": {
+                "dbname": "project_production",
+                "host": "localhost",
+                "port": 27017
+            },
+            "mailer": {
+                "smtp": {
+                    "host": "localhost",
+                    "port": 25
+                },
+                "gmail": {
+                    "service": "Gmail",
+                    "auth": {
+                        "user": "",
+                        "pass": ""
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 var seeder = require('mongoose-seed'),
-    config = require('./controllers/tools.js').config();
+    config = require('./helpers/config');
 
 seeder.connect('mongodb://' + config.db.host +':' + config.db.port +'/' + config.db.dbname, function() {
 	seeder.loadModels([
@@ -17,20 +17,9 @@ var data = [
             {
                 'firstname': 'Christopher',
                 'lastname': 'Fouquier',
-                'email': 'chirstopher@clintagency.com',
+                'email': 'christopher@clintagency.com',
                 'password': 'root',
                 'role': 'admin'
-            }
-        ]
-    },
-    {
-        'model': 'User',
-        'documents': [
-            {
-                'firstname': 'Jean',
-                'lastname': 'Roger',
-                'email': 'jean@clintagenecy.com',
-                'password': 'root'
             }
         ]
     }

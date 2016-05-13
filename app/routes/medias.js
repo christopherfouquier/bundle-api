@@ -10,6 +10,9 @@ module.exports = function(app) {
         .get(medias.list)
         .post(medias.create);
 
+    app.route('/medias/count')
+        .get(medias.count);
+
     app.route('/medias/:mediaId')
         .get(medias.read)
         .put(medias.update)
