@@ -10,6 +10,16 @@ var app     = require('./app/app'),
     log     = require('./app/helpers/logs');
 
 /**
+ * PMX
+ */
+if (process.env.NODE_ENV == "production") {
+    var pmx = require('pmx').init({
+        network : true,
+        ports   : true
+    });
+}
+
+/**
  * Get port from environment and store in Express.
  */
 
